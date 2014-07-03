@@ -36,7 +36,8 @@ class ThemeSerializer(serializers.ModelSerializer):
 
     def get_image(self, obj):
         """ return the absolute image url """
-        return obj.image.url
+        if obj.image:
+            return obj.image.url
 
 class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
