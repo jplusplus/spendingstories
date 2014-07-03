@@ -70,11 +70,11 @@ STATIC_URL              = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NA
 COMPRESS_URL            = STATIC_URL
 COMPRESS_STORAGE        = STATICFILES_STORAGE
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', 'True') == "True"
-COMPRESS_OFFLINE = True
+COMPRESS_ENABLED     = os.environ.get('COMPRESS_ENABLED', 'True') == "True"
+COMPRESS_OUTPUT_DIR  = ""
+COMPRESS_OFFLINE     = True
 # Activate CSS minifier in
 COMPRESS_CSS_FILTERS = (
-    "compressor.filters.css_default.CssAbsoluteFilter",
     "compressor.filters.cssmin.CSSMinFilter",
 )
 
