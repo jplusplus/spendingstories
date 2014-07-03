@@ -1,9 +1,16 @@
 # Makefile -- Spending Stories
 
 WEBAPP     = $(wildcard */webapp.py)
+PYC        = $(wildcard *.pyc webapp/*.pyc webapp/*/*.pyc webapp/*/*/*.pyc webapp/*/*/*/*.pyc webapp/*/*/*/*/*.pyc libs/*.pyc libs/*/*.pyc libs/*/*/*.pyc)
+CACHE      = $(wildcard staticfiles/CACHE)
+RM         = rm -fr
 
-run:
+run: clean
 	. `pwd`/.env ; python manage.py runserver
+
+clean:
+	$(RM) $(PYC)
+	$(RM) $(CACHE)
 
 install:
 	virtualenv venv --no-site-packages --distribute --prompt=SpendingStories
